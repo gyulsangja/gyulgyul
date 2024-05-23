@@ -1,95 +1,62 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import React, { useRef, useState, useEffect } from "react";
+import pageStyle from '../app/page.module.css'
+import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
+import Sec1 from "./_components/Sec1";
+import Sec2 from "./_components/Sec2";
+import Sec3 from "./_components/Sec3";
+import Sec4 from "./_components/Sec4";
+import Sec5 from "./_components/Sec5";
+import Sec6 from "./_components/Sec6";
 
 export default function Home() {
+  const sec3Ref = useRef(null);
+  const [isFixed, setIsFixed] = useState(false);
+  const [viewHeight, setViewHeight] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setViewHeight(window.innerHeight);
+    }
+  }, []);
+
+  const { scrollY } = useScroll();
+  const start = sec3Ref.current ? sec3Ref.current.offsetTop : 0;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= start) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    const handleResize = () => {
+      setViewHeight(window.innerHeight);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [start]);
+
+  const scale = useTransform(scrollY, [start, start + viewHeight], [0, 30]);
+  const springScale = useSpring(scale, { stiffness: 50, damping: 20 });
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <main className={pageStyle.main}>
+      <Sec1/>
+      <Sec2/>
+      <Sec3 start={start} viewHeight={viewHeight}/>
+      <div className={pageStyle.mt20vh}></div>
+      <Sec4 viewHeight={viewHeight}/>
+      <Sec5/>
+      <Sec6/>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
   );
 }

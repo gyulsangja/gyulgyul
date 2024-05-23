@@ -1,0 +1,12 @@
+.header{display: flex;flex-direction: row;justify-content: space-between;margin: 0 40px;position: fixed;width: calc(100vw - 80px);z-index: 9999;color: #fff;}
+.header h1 a{display: block;line-height: 60px;font-family: 'Freesentation-9Black';}
+.header h1 img{width: 40px; height: auto; vertical-align: middle;}
+.header.on{background: #fff;}
+
+.header nav ul{display: flex;flex-direction: row;justify-content: flex-end;}
+.header nav ul li{margin: 0 8px;}
+.header nav ul li a{line-height: 60px;display: block;}
+
+@media screen and (max-width:1000px) {
+    .header nav ul{display: none;}
+}
