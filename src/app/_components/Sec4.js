@@ -110,7 +110,7 @@ const Sec4 = ({ viewHeight }) => {
                     animate={inView ? { y: 0 } : { y: 20 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                     style={{ translateY: springTranslateYForContent }}
-                  >React Next VUE</motion.p>
+                  >React Next VUE JQUERY</motion.p>
                   <motion.h4
                     initial={{ y: 20 }}
                     animate={inView ? { y: 0 } : { y: 20 }}
