@@ -24,7 +24,7 @@ const Sec5 = () => {
                     <p><b>Database</b> : MYSQL, Object Storage(S3)</p>
                     <p><b>dependencies</b> : Redux, Swiper, Recharts </p>
                     <div className={pageStyle.btn}>
-                        <a href='http://118.67.135.87:3000' target='_blank'>바로가기</a>
+                        <a href='http://49.50.165.24:3000' target='_blank'>바로가기</a>
                         <a href='http://github.com/gyulsangja/gyulstock' target='_blank'>GitHub</a>
                     </div>
                 </div>
@@ -40,7 +40,7 @@ const Sec5 = () => {
                     <p><b>Database</b> : MYSQL, Object Storage(S3)</p>
                     <p><b>dependencies</b> : jsonwebtoken, VUEX, Swiper.js, aos </p>
                     <div className={pageStyle.btn}>
-                        <a href='http://118.67.135.87:8000' target='_blank'>바로가기</a>
+                        <a href='http://118.67.128.96:3000' target='_blank'>바로가기</a>
                         <a href='http://github.com/gyulsangja/gyultree' target='_blank'>GitHub</a>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ const Sec5 = () => {
                     <p><b>Backend</b> : next.js, Docker, Cloud Server </p>
                     <p><b>dependencies</b> : framer-motion</p>
                     <div className={pageStyle.btn}>
-                        <a href='http://118.67.135.87:4000' target='_blank'>바로가기</a>
+                        <a href='http://101.101.218.176:3000' target='_blank'>바로가기</a>
                         <a href='http://github.com/gyulsangja/gyulgyul' target='_blank'>GitHub</a>
                     </div>
                 </div>
