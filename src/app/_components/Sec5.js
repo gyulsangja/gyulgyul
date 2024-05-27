@@ -56,7 +56,7 @@ const Sec5 = () => {
                     <p><b>dependencies</b> : framer-motion</p>
                     <div className={pageStyle.btn}>
                         <a href='http://118.67.135.87:4000' target='_blank'>바로가기</a>
-                        <a href='http://github.com/gyulsangja/mypage' target='_blank'>GitHub</a>
+                        <a href='http://github.com/gyulsangja/gyulgyul' target='_blank'>GitHub</a>
                     </div>
                 </div>
             </li>
