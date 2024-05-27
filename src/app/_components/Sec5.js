@@ -3,7 +3,7 @@ import pageStyle from '../../app/page.module.css'
 import Image from 'next/image'
 import img1 from '../../../public/images/img1.jpg'
 import img2 from '../../../public/images/img2.png'
-import img3 from '../../../public/images/sec1.jpg'
+import img3 from '../../../public/images/img3.jpg'
 
 const Sec5 = () => {
   return (
